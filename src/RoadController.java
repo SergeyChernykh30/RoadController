@@ -1,8 +1,4 @@
 import core.*;
-import core.Camera;
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.Scanner;
 
 public class RoadController {
     private static double passengerCarMaxWeight = 3500.0; // kg
@@ -49,16 +45,16 @@ public class RoadController {
         System.out.println("Car number is " + justCar.getNumber());
         System.out.println("Car height is " + justCar.getHeight());
         System.out.println("Car weight is " + justCar.getWeight());
-        System.out.println("Car has vehicle " + justCar.getHasVehicle());
-        System.out.println("Car is special? " + justCar.getIsSpecial());
+        System.out.println("Car has vehicle " + justCar.hasVehicle());
+        System.out.println("Car is special? " + justCar.isSpecial());
     }
 
     /**
      * Расчёт стоимости проезда исходя из массы и высоты
      */
     private static int calculatePrice(Car car) {
-        int carHeight = car.height;
-        double weight = car.weight;
+        int carHeight = car.getHeight();
+        double weight = car.getWeight();
         int price = 0;
         if (carHeight > controllerMaxHeight) {
             blockWay("высота вашего ТС превышает высоту пропускного пункта!");
@@ -66,7 +62,7 @@ public class RoadController {
         } else if (carHeight > passengerCarMaxHeight || weight > passengerCarMaxWeight)
             {
                 price = cargoCarPrice;
-                if (car.hasVehicle)
+                if (car.hasVehicle())
                 {
                     price = price + vehicleAdditionalPrice;
                 }

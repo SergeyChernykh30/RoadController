@@ -1,13 +1,13 @@
 package core;
 
 public class Car {
-    public String number;
-    public int height;
-    public double weight;
-    public boolean hasVehicle;
-    public boolean isSpecial;
+    private String number;
+    private int height;
+    private double weight;
+    private boolean hasVehicle;
+    private boolean isSpecial;
 
-    public String toString() {
+    public String getCarTitle() {
         String special = isSpecial ? "СПЕЦТРАНСПОРТ " : "";
         return "\n=========================================\n" +
             special + "Автомобиль с номером " + number +
@@ -47,7 +47,7 @@ public class Car {
     }
 
 
-    public boolean getHasVehicle()
+    public boolean hasVehicle()
     {
         return hasVehicle;
     }
@@ -58,7 +58,7 @@ public class Car {
     }
 
 
-    public boolean getIsSpecial()
+    public boolean isSpecial()
     {
         return isSpecial;
     }
